@@ -1,16 +1,49 @@
-# Three.js Journey
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+## Three.JS + Typescript boilerplate
+This repository contains my Three.js + TypeScript starter project.  
+## 🚀 Getting Started
 
-``` bash
-# Install dependencies (only the first time)
+ 1. Clone the repository
+```bash
+git clone https://github.com/iLiranS/Three-Typescript-Template
+```
+2. Install dependencies
+```bash
+pnpm install 
+# or
 npm install
+```
+3. Update packages to latest recommended versions
+```bash
+pnpm update --latest
+# or
+npm update
 
-# Run the local server at localhost:8080
+```
+4. Run development server to make sure it works
+```bash
+pnpm dev
+# or
 npm run dev
 
-# Build for production in the dist/ directory
-npm run build
+```
+## 📂 Project structure
+This is the basic structure of which you can expand on your own :
+```css
+📂src
+ └─ 📂Experience
+    ├─ 📂Utils
+    │   ├─ 📄 EventEmitter.ts
+    │   ├─ 📄 Sizes.ts
+    │   └─ 📄 Time.ts
+    │  
+    ├─ 📂 World
+    │   ├─ 📄 World.ts
+    │   ├─ ... (your own meshes)
+    │
+    ├─ Camera.ts
+    ├─ Experience.ts
+    └─ Renderer.ts
+
+
 ```
