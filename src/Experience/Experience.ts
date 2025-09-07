@@ -4,6 +4,9 @@ import Time from "./Utils/Time"
 import Camera from './Camera'
 import Renderer from './Renderer'
 import World from './World/World'
+import Resources from './Utils/Resources'
+import { sources } from './sources'
+
 
 export default class Experience {
      private static instance: Experience
@@ -14,6 +17,7 @@ export default class Experience {
      scene: THREE.Scene
      renderer: Renderer
      world: World
+     resources: Resources
 
      constructor() {
           Experience.instance = this // access instance using get funciton and not new() !! it will override
@@ -25,6 +29,7 @@ export default class Experience {
           this.scene = new THREE.Scene()
           this.camera = new Camera() //  uses all of the above so keep it here
           this.renderer = new Renderer() // make it after camera
+          this.resources = new Resources(sources) // keep before world !
           this.world = new World()
 
           // Setup event listeners

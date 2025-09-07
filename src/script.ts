@@ -114,16 +114,8 @@ const experience = new Experience()
 // floor.rotation.x = - Math.PI * 0.5
 // scene.add(floor)
 
-// /**
-//  * Lights
-//  */
-// const directionalLight = new THREE.DirectionalLight('#ffffff', 4)
-// directionalLight.castShadow = true
-// directionalLight.shadow.camera.far = 15
-// directionalLight.shadow.mapSize.set(1024, 1024)
-// directionalLight.shadow.normalBias = 0.05
-// directionalLight.position.set(3.5, 2, - 1.25)
-// scene.add(directionalLight)
+
+
 
 // gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
 // gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')

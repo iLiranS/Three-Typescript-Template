@@ -35,14 +35,18 @@ This is the basic structure of which you can expand on your own :
     ├─ 📂Utils
     │   ├─ 📄 EventEmitter.ts
     │   ├─ 📄 Sizes.ts
+    │   ├─ 📄 Resources.ts
     │   └─ 📄 Time.ts
     │  
     ├─ 📂 World
     │   ├─ 📄 World.ts
-    │   ├─ ... (your own meshes)
+    │   ├─ 📄 Environment.ts
+    │   ├─ 📄 Floor.ts (optional)
+    │   ├─ ... (your own meshes - similar to Floor.ts)
     │
     ├─ Camera.ts
     ├─ Experience.ts
+    ├─ sources.ts (array of sources)
     └─ Renderer.ts
 
 
