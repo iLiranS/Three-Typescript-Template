@@ -6,6 +6,7 @@ import Renderer from './Renderer'
 import World from './World/World'
 import Resources from './Utils/Resources'
 import { sources } from './sources'
+import Debug from './Utils/Debug'
 
 
 export default class Experience {
@@ -18,11 +19,13 @@ export default class Experience {
      renderer: Renderer
      world: World
      resources: Resources
+     debug: Debug
 
      constructor() {
           Experience.instance = this // access instance using get funciton and not new() !! it will override
 
           // Initialize properties
+          this.debug = new Debug()
           this.canvas = document.querySelector('canvas') as HTMLCanvasElement
           this.sizes = new Sizes()
           this.time = new Time()
@@ -57,6 +60,31 @@ export default class Experience {
 
      update() {
           this.camera.update()
+          this.world.update() // animation related for meshes in the world
           this.renderer.update()
+
+     }
+     // this destroy is not 100% because there are nested things and 3rd part usage like post processing.
+     destroy() {
+          this.sizes.off('resize') // remove resize listener
+          this.time.off('tick') // remove tick listener
+
+          this.scene.traverse((child) => {
+               // Test if it's a mesh
+               if (child instanceof THREE.Mesh) {
+                    child.geometry.dispose()
+                    // Loop through the material properties
+                    for (const key in child.material) {
+                         const value = child.material[key]
+                         // Test if there is a dispose function
+                         if (value && typeof value.dispose === 'function') {
+                              value.dispose()
+                         }
+                    }
+               }
+          })
+          this.camera.controls.dispose()
+          this.renderer.instance.dispose()
+          if (this.debug.ui) this.debug.ui.destroy()
      }
 }

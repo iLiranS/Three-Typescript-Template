@@ -33,20 +33,20 @@ This is the basic structure of which you can expand on your own :
 📂src
  └─ 📂Experience
     ├─ 📂Utils
+    │   ├─ 📄 Debug.ts
     │   ├─ 📄 EventEmitter.ts
-    │   ├─ 📄 Sizes.ts
     │   ├─ 📄 Resources.ts
+    │   ├─ 📄 Sizes.ts
     │   └─ 📄 Time.ts
     │  
     ├─ 📂 World
-    │   ├─ 📄 World.ts
     │   ├─ 📄 Environment.ts
-    │   ├─ 📄 Floor.ts (optional)
-    │   ├─ ... (your own meshes - similar to Floor.ts)
+    │   ├─ 📄 World.ts
+    │   ├─ ... (your own models - Fox, Floor, etc...)
     │
     ├─ Camera.ts
     ├─ Experience.ts
-    ├─ sources.ts (array of sources)
+    ├─ sources.ts (array of sources to load)
     └─ Renderer.ts
 
 
